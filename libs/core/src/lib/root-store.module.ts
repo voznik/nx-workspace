@@ -19,11 +19,11 @@ import { reducers } from './state';
     StoreModule.forRoot(reducers, {
       metaReducers: isDevMode() ? [storeFreeze] : []
     }),
-    EffectsModule.forRoot([]),
     isDevMode() ? StoreDevtoolsModule.instrument() : [],
     StoreModule.forFeature(COUNTER_FEATURE_KEY, counterReducer, {
       initialState: counterInitialState
     }),
+    EffectsModule.forRoot([]),
     EffectsModule.forFeature([CounterEffects])
   ]
 })
