@@ -1,0 +1,34 @@
+<hc-navbar appIcon="https://cashmere.healthcatalyst.net/assets/CashmereAppLogo.svg" brandIcon="https://cashmere.healthcatalyst.net/assets/TriFlame.svg" homeUri="/home" fixedTop="true">
+  <hc-navbar-link *ngFor="let route of routes" [uri]="route.link" [linkText]="route.title"></hc-navbar-link>
+  <!-- <hc-navbar-link uri="/counter" linkText="Styles"></hc-navbar-link> -->
+  <a class="hc-navbar-github-button" title="View on GitHub" href="https://github.com/HealthCatalyst/Fabric.Cashmere" target="blank">
+      <hc-icon fontSet="fa" fontIcon="fa-github" hcIconLg></hc-icon>
+  </a>
+  <hc-navbar-mobile-menu appSwitcher="false">
+      <hc-list>
+          <hc-list-item routerLink="/home" routerLinkActive="active-link">
+              <span hcListLine>Home</span>
+          </hc-list-item>
+      </hc-list>
+      <hr>
+      <hc-list>
+          <a href="https://github.com/HealthCatalyst/Fabric.Cashmere">
+              <hc-list-item>
+                  <span hcListLine>View on GitHub</span>
+              </hc-list-item>
+          </a>
+      </hc-list>
+  </hc-navbar-mobile-menu>
+</hc-navbar>
+<div class="hc-components-container">
+    <ng-content select=".layout-subnav"></ng-content>
+    <ng-content select=".layout-left-column"></ng-content>
+    <!-- <div class="hc-components-left-column">
+        <div class="hc-components-nav-container">
+            <ng-content select=".layout-left-column"></ng-content>
+        </div>
+    </div> -->
+    <div class="hc-components-right-column">
+        <router-outlet></router-outlet>
+    </div>
+</div>

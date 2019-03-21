@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@healthcatalyst/cashmere/scss/cashmere";
+
+html, body {
+  margin: 0;
+  background-color: #fff;
+  color: #333;
+}
+
+body {
+  padding-top: 53px;
+}

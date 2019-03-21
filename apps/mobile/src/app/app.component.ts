@@ -5,7 +5,7 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {Platform} from '@ionic/angular';
 
 @Component({
-    selector: 'ngrx-demo-mobile',
+    selector: 'nxi-mobile',
     templateUrl: 'app.component.html'
 })
 export class AppComponent {

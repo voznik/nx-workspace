@@ -1,27 +1,30 @@
 {
-    "npmScope": "ngrx-demo-workspace",
-    "implicitDependencies": {
-        "angular.json": "*",
-        "package.json": "*",
-        "tsconfig.json": "*",
-        "tslint.json": "*",
-        "nx.json": "*"
+  "npmScope": "nxi",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "ui": {
+      "tags": []
     },
-    "projects": {
-        "web": {
-            "tags": []
-        },
-        "web-e2e": {
-            "tags": []
-        },
-        "mobile": {
-            "tags": []
-        },
-        "mobile-e2e": {
-            "tags": []
-        },
-        "core": {
-            "tags": []
-        }
+    "core": {
+      "tags": []
+    },
+    "mobile": {
+      "tags": []
+    },
+    "mobile-e2e": {
+      "tags": []
+    },
+    "web": {
+      "tags": []
+    },
+    "web-e2e": {
+      "tags": []
     }
+  }
 }

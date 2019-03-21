@@ -8,7 +8,7 @@
 
 <ion-content padding>
     <h2 text-center>
-        {{counter$ | async}}
+        {{(counter$ | async)?.total}}
     </h2>
     <!-- <app-my-component></app-my-component> -->
     <p text-center>
@@ -16,6 +16,20 @@
         <ion-button (click)="decrement()"> -1</ion-button>
     </p>
     <p text-center>
-        <ion-button (click)="reset()"> Reset</ion-button>
+        <button (click)="reset()" hc-button title="Secondary Button" buttonStyle="secondary"><hc-icon fontSet="fa" fontIcon="fa-trash" class="icon-left"></hc-icon> Reset</button>
+    </p>
+    <p text-center>
+        <button (click)="openTemplate(content)" hc-button title="Primary-Alt Button" buttonStyle="primary-alt"> Modal</button>
     </p>
 </ion-content>
+
+<ng-template #content let-close="close" let-dismiss="dismiss" let-data="data">
+    <hc-modal>
+        <hc-modal-header>Modal Title</hc-modal-header>
+        <hc-modal-body>Data: {{ data }}</hc-modal-body>
+        <hc-modal-footer>
+            <button hc-button buttonStyle="link" (click)="dismiss()">Cancel</button>
+            <button hc-button buttonStyle="primary" (click)="close()">OK</button>
+        </hc-modal-footer>
+    </hc-modal>
+</ng-template>

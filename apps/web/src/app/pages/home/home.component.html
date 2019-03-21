@@ -1,0 +1,41 @@
+<header>
+    <span class="headerLeft">
+        <img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" alt="Fabric.Cashmere Logo"/>
+    </span>
+    <span class="headerRight">
+        <img src="https://cashmere.healthcatalyst.net/assets/FabricCashmere.svg" alt="Fabric.Cashmere Title"/>
+        <p class="headerCopy">Welcome to {{ title }}! This is an Angular app built with <a href="https://nx.dev">Nx</a> and <a href="https://cashmere.healthcatalyst.net" target="_blank">Health Catalyst's Cashmere</a>.</p>
+        <p class="headerCopy">🔎 **Nx is a set of Angular CLI power-ups for modern development.**</p>
+        <button hc-button title="Learn more about Cashmere" color="primary" (click)="openTemplate(content)">Get Modal</button>
+    </span>
+</header>
+<main>
+  <section style="text-align: center; flex-direction: column; justify-content: center">
+      <h4>
+          Counter example
+      </h4>
+      <h1>
+          {{(counter$ | async)?.total}}
+      </h1>
+      <div class="counter-buttons">
+          <button (click)="increment()" hc-button title="Primary Button" buttonStyle="primary"><hc-icon fontSet="fa" fontIcon="fa-plus" class="icon-left"></hc-icon> +1</button>
+          <button (click)="decrement()" hc-button title="Destructive Button" buttonStyle="destructive"><hc-icon fontSet="fa" fontIcon="fa-minus" class="icon-left"></hc-icon> -1</button>
+      </div>
+      <br>
+      <p>
+          <button (click)="reset()" hc-button title="Secondary Button" buttonStyle="secondary"><hc-icon fontSet="fa" fontIcon="fa-trash" class="icon-left"></hc-icon> Reset</button>
+      </p>
+  </section>
+</main>
+
+
+<ng-template #content let-close="close" let-dismiss="dismiss" let-data="data">
+    <hc-modal>
+        <hc-modal-header>Modal Title</hc-modal-header>
+        <hc-modal-body>Data: {{ data }}</hc-modal-body>
+        <hc-modal-footer>
+            <button hc-button buttonStyle="link" (click)="dismiss()">Cancel</button>
+            <button hc-button buttonStyle="primary" (click)="close()">OK</button>
+        </hc-modal-footer>
+    </hc-modal>
+</ng-template>
