@@ -1,0 +1,10 @@
+/*  !!! include font-awesome sourses WITHOU path - it is included in critical css
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+$fa-font-path: '/assets/fonts/' !default;
+@import '~font-awesome/scss/font-awesome';
+//
+$opensans-name: 'Open Sans' !default;
+$opensans-path: '/assets/fonts/' !default;
+@import "~opensans-webkit/src/sass/open-sans";

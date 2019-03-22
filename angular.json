@@ -191,11 +191,6 @@
       "sourceRoot": "apps/web/src",
       "projectType": "application",
       "prefix": "nxi",
-      "schematics": {
-        "@nrwl/schematics:component": {
-          "style": "scss"
-        }
-      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -205,10 +200,21 @@
             "main": "apps/web/src/main.ts",
             "polyfills": "apps/web/src/polyfills.ts",
             "tsConfig": "apps/web/tsconfig.app.json",
-            "assets": ["apps/web/src/favicon.ico", "apps/web/src/assets"],
+            "assets": [
+              "apps/web/src/favicon.ico",
+              "apps/web/src/assets",
+              {
+                "glob": "*.*",
+                "input": "node_modules/font-awesome/fonts/",
+                "output": "/assets/fonts"
+              },
+              {
+                "glob": "*.*",
+                "input": "node_modules/opensans-webkit/fonts/",
+                "output": "/assets/fonts"
+              }
+            ],
             "styles": [
-              "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/npm-font-open-sans/open-sans.css",
               "apps/web/src/styles.scss"
             ],
             "scripts": [
@@ -323,6 +329,10 @@
     "@nrwl/schematics:library": {
       "style": "scss",
       "framework": "angular"
+    },
+    "@nrwl/schematics:component": {
+      "style": "scss",
+      "changeDetection": "onPush"
     }
   },
   "defaultProject": "nxi"
