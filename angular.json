@@ -91,11 +91,32 @@
             "main": "apps/mobile/src/main.ts",
             "polyfills": "apps/mobile/src/polyfills.ts",
             "tsConfig": "apps/mobile/tsconfig.app.json",
-            "assets": ["apps/mobile/src/favicon.ico", "apps/mobile/src/assets"],
+            "assets": [
+              "apps/mobile/src/favicon.ico",
+              "apps/mobile/src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              },
+              {
+                "glob": "*.*",
+                "input": "node_modules/font-awesome/fonts/",
+                "output": "/assets/fonts"
+              },
+              {
+                "glob": "*.*",
+                "input": "node_modules/opensans-webkit/fonts/",
+                "output": "/assets/fonts"
+              }
+            ],
             "styles": [
-              "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/npm-font-open-sans/open-sans.css",
-              "apps/mobile/src/styles.scss"
+              {
+                "input": "apps/mobile/src/theme/variables.scss"
+              },
+              {
+                "input": "apps/mobile/src/global.scss"
+              }
             ],
             "scripts": [
               "node_modules/popper.js/dist/popper.js"
@@ -162,6 +183,30 @@
             "jestConfig": "apps/mobile/jest.config.js",
             "tsConfig": "apps/mobile/tsconfig.spec.json",
             "setupFile": "apps/mobile/src/test-setup.ts"
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "mobile:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mobile:build:production"
+            }
+          }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "mobile-build",
+            "devServerTarget": "mobile:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "mobile-build:production",
+              "devServerTarget": "mobile:serve:production"
+            }
           }
         }
       }

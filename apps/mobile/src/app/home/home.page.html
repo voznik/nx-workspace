@@ -1,35 +1,74 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>
-            Ngrx/Ionic Mobile App
-        </ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-    <h2 text-center>
-        {{(counter$ | async)?.total}}
-    </h2>
-    <!-- <app-my-component></app-my-component> -->
-    <p text-center>
-        <ion-button (click)="increment()"> +1</ion-button>
-        <ion-button (click)="decrement()"> -1</ion-button>
-    </p>
-    <p text-center>
-        <button (click)="reset()" hc-button title="Secondary Button" buttonStyle="secondary"><hc-icon fontSet="fa" fontIcon="fa-trash" class="icon-left"></hc-icon> Reset</button>
-    </p>
-    <p text-center>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="presentLoading($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>Get Started</ion-card-subtitle>
+      <ion-card-title>Welcome to Ionic</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-subtitle>Use NgRx Counter</ion-card-subtitle>
+      <ion-card-title>Counter</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="counter$ | async as counter">
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="{{'https://gravatar.com/avatar/' + (counter.total | absolute) +'?d=identicon&f=y'}}">
+        </ion-thumbnail>
+        <ion-label>
+          {{counter.total}}
+        </ion-label>
+      </ion-item>
+      <div fxLayout="column" fxLayoutAlign="space-around center" fxlayoutgap="10px grid" class="ion-padding ">
+        <button (click)="presentAlertConfirm()" hc-button title="Secondary Button" buttonStyle="secondary"><hc-icon fontSet="fa" fontIcon="fa-trash" class="icon-left"></hc-icon> Reset</button>
+        <br>
         <button (click)="openTemplate(content)" hc-button title="Primary-Alt Button" buttonStyle="primary-alt"> Modal</button>
-    </p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <!-- Segment in a toolbar -->
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged($event)">
+      <ion-segment-button color="primary" value="increment" (click)="increment()">
+        <ion-label>Increment</ion-label>
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="reset" (click)="reset()">
+        <ion-label>Reset</ion-label>
+        <ion-icon name="trash"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button color="warning" value="decrement" (click)="decrement()">
+        <ion-label>Decrement</ion-label>
+        <ion-icon name="remove-circle"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>
 
 <ng-template #content let-close="close" let-dismiss="dismiss" let-data="data">
-    <hc-modal>
-        <hc-modal-header>Modal Title</hc-modal-header>
-        <hc-modal-body>Data: {{ data }}</hc-modal-body>
-        <hc-modal-footer>
-            <button hc-button buttonStyle="link" (click)="dismiss()">Cancel</button>
-            <button hc-button buttonStyle="primary" (click)="close()">OK</button>
-        </hc-modal-footer>
-    </hc-modal>
+  <hc-modal>
+    <hc-modal-header>Modal Title</hc-modal-header>
+    <hc-modal-body>Data: {{ data }}</hc-modal-body>
+    <hc-modal-footer>
+      <button hc-button buttonStyle="link" (click)="dismiss()">Cancel</button>
+      <button hc-button buttonStyle="primary" (click)="close()">OK</button>
+    </hc-modal-footer>
+  </hc-modal>
 </ng-template>

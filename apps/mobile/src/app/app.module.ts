@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     IonicModule.forRoot(),
-    CoreModule,
+    CoreModule.forRoot(),
     UiModule,
     AppRoutingModule
   ],

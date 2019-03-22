@@ -4,9 +4,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { CashmereModule } from './cashmere.module';
 import { LayoutFullComponent } from './components';
+import { PipesModule } from './pipes';
 import { UiModalService } from './services';
 
-const UI_MODULES = [CashmereModule, FlexLayoutModule];
+const UI_MODULES = [CashmereModule, FlexLayoutModule, PipesModule];
 const UI_COMPONENTS = [LayoutFullComponent];
 const UI_SERVICES = [UiModalService];
 

@@ -1,26 +1,39 @@
-import {Component} from '@angular/core';
-import {SplashScreen} from '@ionic-native/splash-screen/ngx';
-import {StatusBar} from '@ionic-native/status-bar/ngx';
+import { Component } from '@angular/core';
 
-import {Platform} from '@ionic/angular';
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 @Component({
-    selector: 'nxi-mobile',
-    templateUrl: 'app.component.html'
+  selector: 'nxi-mobile',
+  templateUrl: 'app.component.html'
 })
 export class AppComponent {
-    constructor(
-        private platform: Platform,
-        private splashScreen: SplashScreen,
-        private statusBar: StatusBar
-    ) {
-        this.initializeApp();
+  public appPages = [
+    {
+      title: 'Home',
+      url: '/home',
+      icon: 'home'
+    },
+    {
+      title: 'List',
+      url: '/list',
+      icon: 'list'
     }
+  ];
 
-    initializeApp() {
-        this.platform.ready().then(() => {
-            this.statusBar.styleDefault();
-            this.splashScreen.hide();
-        });
-    }
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar
+  ) {
+    this.initializeApp();
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
 }

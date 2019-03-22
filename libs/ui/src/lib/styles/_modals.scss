@@ -1,0 +1,6 @@
+// modal width for ionic
+.hc-modal-content {
+  .plt-mobile & {
+    max-width: calc(100vw - 2rem);
+  }
+}

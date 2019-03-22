@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     UiModule,
-    CoreModule,
+    CoreModule.forRoot(),
     AppRoutingModule
   ],
   providers: [],

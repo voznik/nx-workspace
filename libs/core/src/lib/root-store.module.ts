@@ -1,4 +1,10 @@
-import { NgModule, isDevMode } from '@angular/core';
+import {
+  NgModule,
+  isDevMode,
+  ModuleWithProviders,
+  Optional,
+  SkipSelf
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -27,4 +33,18 @@ import { reducers } from './state';
     EffectsModule.forFeature([CounterEffects])
   ]
 })
-export class RootStoreModule {}
+export class RootStoreModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: RootStoreModule
+    };
+  }
+
+  constructor(@Optional() @SkipSelf() parentModule?: RootStoreModule) {
+    if (parentModule) {
+      throw new Error(
+        'RootStoreModule already loaded. Import in root module only.'
+      );
+    }
+  }
+}
