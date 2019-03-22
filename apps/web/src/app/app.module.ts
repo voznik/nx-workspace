@@ -4,11 +4,10 @@ import { NgModule } from '@angular/core';
 import { CoreModule } from '@nxi/core';
 import { UiModule } from '@nxi/ui';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

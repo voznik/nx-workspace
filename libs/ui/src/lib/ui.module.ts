@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { CashmereModule } from './cashmere.module';
-import { UI_COMPONENTS } from './components';
-import { UI_SERVICES } from './services';
+import { LayoutFullComponent } from './components';
+import { UiModalService } from './services';
 
-const SHARED_MODULES = [CashmereModule];
+const UI_MODULES = [CashmereModule, FlexLayoutModule];
+const UI_COMPONENTS = [LayoutFullComponent];
+const UI_SERVICES = [UiModalService];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, ...SHARED_MODULES],
+  imports: [CommonModule, RouterModule, ...UI_MODULES],
   declarations: [...UI_COMPONENTS],
-  exports: [CommonModule, RouterModule, ...SHARED_MODULES, ...UI_COMPONENTS],
+  exports: [CommonModule, RouterModule, ...UI_MODULES, ...UI_COMPONENTS],
   providers: [...UI_SERVICES]
 })
 export class UiModule {}

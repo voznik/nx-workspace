@@ -24,7 +24,8 @@
     "update:check": "ng update",
     "workspace-schematic": "./node_modules/.bin/nx workspace-schematic",
     "dep-graph": "./node_modules/.bin/nx dep-graph",
-    "help": "./node_modules/.bin/nx help"
+    "help": "./node_modules/.bin/nx help",
+    "build-scss:ui": "ts-node -O '{\"module\": \"commonjs\"}' ./libs/ui/bundle-scss.ts"
   },
   "private": true,
   "dependencies": {
@@ -33,6 +34,7 @@
     "@angular/common": "^7.0.0",
     "@angular/compiler": "^7.0.0",
     "@angular/core": "^7.0.0",
+    "@angular/flex-layout": "^7.0.0-beta.24",
     "@angular/forms": "^7.0.0",
     "@angular/platform-browser": "^7.0.0",
     "@angular/platform-browser-dynamic": "^7.0.0",
@@ -57,6 +59,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
+    "@angular-devkit/build-ng-packagr": "^0.13.6",
     "@angular/cli": "7.3.1",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "^7.0.0",
@@ -72,10 +75,12 @@
     "jasmine-marbles": "^0.4.1",
     "jest": "24.1.0",
     "jest-preset-angular": "7.0.0",
+    "ng-packagr": "^4.7.1",
     "ngrx-store-freeze": "0.2.4",
     "prettier": "1.15.2",
     "scss-bundle": "^2.5.0",
     "ts-node": "^7.0.1",
+    "tsickle": "^0.34.3",
     "tslint": "~5.11.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "3.2.2"
